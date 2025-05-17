@@ -27,12 +27,11 @@ app.get('/', async(req, res) => {
 // Routes
 // 2. Get all videos
 app.get('/api/videos', async (req, res) => {
-    console.log("Get all videos ", req)
     try {
         const { data, error } = await supabase
-        .from('videos')
-        .select('*')
-        .order('created_at', { ascending: false });
+            .from('videos')
+            .select('*')
+            .order('created_at', { ascending: false });
 
         if (error) throw error;
         res.json(data);
